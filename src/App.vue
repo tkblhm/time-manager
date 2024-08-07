@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <SwitchButtons @timer-page="toTimerPage" @stats-page="toStatsPage"/>
+  <component :is="page"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TimerPage from './components/TimerPage.vue';
+import SwitchButtons from './components/SwitchButtongs.vue';
+import StatsPage from './components/StatsPage.vue';
 
 export default {
+  data() {
+    return {
+      page: TimerPage
+    }
+  },
   name: 'App',
   components: {
-    HelloWorld
+    TimerPage,
+    SwitchButtons,
+    StatsPage
+  },
+
+  methods: {
+    toTimerPage() {
+      this.page = "TimerPage"
+    },
+    toStatsPage() {
+      this.page = "StatsPage"
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
