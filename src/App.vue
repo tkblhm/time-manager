@@ -4,9 +4,9 @@
 </template>
 
 <script>
-import TimerPage from './components/TimerPage.vue';
+import TimerPage from './components/timer/TimerPage.vue';
 import SwitchButtons from './components/SwitchButtons.vue';
-import StatsPage from './components/StatsPage.vue';
+import StatsPage from './components/stats/StatsPage.vue';
 
 export default {
   data() {

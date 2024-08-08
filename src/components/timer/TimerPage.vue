@@ -9,7 +9,7 @@
 import TimeDisplay from './TimeDisplay.vue';
 import TimerButtons from './TimerButtons.vue';
 import ManualButtons from './ManualButtons.vue';
-import api from '../api/index';
+import api from '../../api/index';
 
 export default {
   data() {

@@ -18,6 +18,13 @@ const api = {
         end: end
       }
     });
+  },
+  getWeekPeriods(firstDay) {
+    return axios.get(path.baseUrl + path.week, {
+      params: {
+        firstDay: firstDay
+      }
+    })
   }
 }
 
