@@ -9,6 +9,7 @@
 import TimeDisplay from './TimeDisplay.vue';
 import TimerButtons from './TimerButtons.vue';
 import ManualButtons from './ManualButtons.vue';
+import api from '../api/index';
 
 export default {
   data() {
@@ -43,6 +44,8 @@ export default {
     endTimer() {
       if (this.isTiming) {
         // todo: send time to backend
+        let end = new Date().toISOString().split('.')[0];
+        api.addEntry(this.startTime.toISOString().split('.')[0], end);
         clearInterval(this.timer);
         this.isTiming = false;
         this.currentTime = 0;
@@ -56,13 +59,20 @@ export default {
       }
     },
     updateTotalTime() {
-      //todo:get from backend
-      this.totalTime = 10875;
+      this.totalTime = api.getToday().then(res => {
+        console.log(res.data);
+        this.totalTime = res.data;
+      });
+
+      // this.totalTime = 1234;
     },
     setTimePeriod(date, beginTime, finishTime) {
+      console.log("time period:");
+      console.log(date+beginTime, date+finishTime)
       console.log(date);
       console.log(beginTime);
       console.log(finishTime);
+      api.addEntry(date+"T"+beginTime, date+"T"+finishTime);
       //todo: send to backend
       this.updateTotalTime();
     }

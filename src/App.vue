@@ -5,7 +5,7 @@
 
 <script>
 import TimerPage from './components/TimerPage.vue';
-import SwitchButtons from './components/SwitchButtongs.vue';
+import SwitchButtons from './components/SwitchButtons.vue';
 import StatsPage from './components/StatsPage.vue';
 
 export default {
