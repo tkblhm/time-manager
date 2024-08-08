@@ -1,3 +1,7 @@
+<!-- 
+ Page containing the timer
+-->
+
 <template>
 
 <TimeDisplay :totalTime="totalTime" :currentTime="currentTime"></TimeDisplay>

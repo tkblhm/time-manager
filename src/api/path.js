@@ -1,3 +1,5 @@
+
+// full url constructed by baseUrl + ...
 const base = {
   baseUrl: 'http://localhost:8081/',
   today: 'today',

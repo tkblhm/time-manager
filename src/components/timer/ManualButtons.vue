@@ -1,3 +1,7 @@
+<!-- 
+ Component containing buttons that manually add a time period
+-->
+
 <template>
   <button @click="setFunction">set</button>
   <div>

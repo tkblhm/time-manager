@@ -1,3 +1,7 @@
+<!-- 
+ Component containing buttons that switch two pages
+-->
+
 <template>
   <button @click="toTimerPage">Timer</button>
   <button @click="toStatsPage">Stats</button>

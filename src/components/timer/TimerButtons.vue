@@ -1,3 +1,7 @@
+<!-- 
+ Component Containing buttons for the timer
+-->
+
 <template>
   <button @click="startFunction()">start</button>
   <button @click="cancelFunction()">cancel</button>

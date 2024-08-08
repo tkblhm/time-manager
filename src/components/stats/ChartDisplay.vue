@@ -1,3 +1,7 @@
+<!-- 
+ Component for displaying the chart showing time periods in a week.
+-->
+
 <template>
   <Bar
     id="my-chart-id"

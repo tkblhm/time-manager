@@ -1,3 +1,7 @@
+<!-- 
+ Page containing charts
+-->
+
 <template>
   <ChartDisplay/>
   <DateSelector/>

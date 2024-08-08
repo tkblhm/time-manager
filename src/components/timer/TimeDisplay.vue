@@ -1,3 +1,7 @@
+<!-- 
+ Component showing times in large font
+-->
+
 <template>
 <p>{{ formatTime(totalTime) }}</p>
 <p>{{ formatTime(currentTime) }}</p>
