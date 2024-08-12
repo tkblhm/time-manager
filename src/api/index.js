@@ -11,7 +11,7 @@ const api = {
   // send the datetime of starting time and ending time to record
   addEntry(start, end) {
     console.log(start, end)
-    return axios.get(path.baseUrl + path.add, {
+    axios.get(path.baseUrl + path.add, {
       params: {
         start: start,
         end: end
@@ -19,13 +19,13 @@ const api = {
     });
   },
  
-  // given the date of the first dat, return the time periods in the following 7 days
+  // given the date of the first day, return the time periods in the following 7 days
   /*
 
   example:
   {
-    "2023-11-01": [],
-    "2023-11-02": [
+    "mon": [],
+    "tue": [
       {
         start: "12:23:34",
         end: "13:23:34"
@@ -35,20 +35,22 @@ const api = {
         end: "03:23:34"
       },
     ],
-    "2023-11-03": {},
-    "2023-11-04": {},
-    "2023-11-05": {},
-    "2023-11-06": {},
-    "2023-11-07": {}
+    "wed": {},
+    "thu": {},
+    "fri": {},
+    "sat": {},
+    "sun": {}
   }
 
   */
-  getWeekPeriods(firstDay) {
-    return axios.get(path.baseUrl + path.week, {
+  getWeekPeriods(date) {
+    let result = axios.get(path.baseUrl + path.week, {
       params: {
-        firstDay: firstDay
+        date: date
       }
     })
+    console.log(result)
+    return result
   }
 }
 

@@ -4,7 +4,7 @@
 
 <template>
   <ChartDisplay/>
-  <DateSelector/>
+  <DateSelector @update-date="updateDate"/>
 </template>
 
 
@@ -12,6 +12,7 @@
 
 import ChartDisplay from './ChartDisplay.vue'
 import DateSelector from './DateSelector.vue'
+import api from '../../api/index'
 
 export default {
   data() {
@@ -23,6 +24,11 @@ export default {
     ChartDisplay,
     DateSelector
   },
+  methods: {
+    updateDate(date) {
+      api.getWeekPeriods(date)
+    }
+  }
 
 }
 

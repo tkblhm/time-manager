@@ -50,6 +50,7 @@ export default {
         // todo: send time to backend
         let end = new Date().toISOString().split('.')[0];
         api.addEntry(this.startTime.toISOString().split('.')[0], end);
+        this.updateTotalTime();
         clearInterval(this.timer);
         this.isTiming = false;
         this.currentTime = 0;
@@ -72,13 +73,14 @@ export default {
     },
     setTimePeriod(date, beginTime, finishTime) {
       console.log("time period:");
-      console.log(date+beginTime, date+finishTime)
-      console.log(date);
-      console.log(beginTime);
-      console.log(finishTime);
-      api.addEntry(date+"T"+beginTime, date+"T"+finishTime);
-      //todo: send to backend
-      this.updateTotalTime();
+      // console.log(date+beginTime, date+finishTime)
+      // console.log(date);
+      // console.log(beginTime);
+      // console.log(finishTime);
+      if (!(date == '' || beginTime == '' || finishTime)) {
+        api.addEntry(date+"T"+beginTime, date+"T"+finishTime);
+        this.updateTotalTime();
+      }
     }
   }
 }
