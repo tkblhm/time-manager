@@ -73,11 +73,11 @@ export default {
     },
     setTimePeriod(date, beginTime, finishTime) {
       console.log("time period:");
-      // console.log(date+beginTime, date+finishTime)
-      // console.log(date);
-      // console.log(beginTime);
-      // console.log(finishTime);
-      if (!(date == '' || beginTime == '' || finishTime)) {
+      console.log(date);
+      console.log(beginTime);
+      console.log(finishTime);
+      if (!(date == '' || beginTime == '' || finishTime == '')) {
+        console.log("add entry")
         api.addEntry(date+"T"+beginTime, date+"T"+finishTime);
         this.updateTotalTime();
       }

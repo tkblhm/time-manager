@@ -5,12 +5,12 @@ import path from "./path"
 const api = {
   // return total amount of time recorded today in seconds 
   getToday() {
-    console.log(path.baseUrl + path.today);
+    // console.log(path.baseUrl + path.today);
     return axios.get(path.baseUrl + path.today);
   },
   // send the datetime of starting time and ending time to record
   addEntry(start, end) {
-    console.log(start, end)
+    // console.log(start, end)
     axios.get(path.baseUrl + path.add, {
       params: {
         start: start,
@@ -24,22 +24,17 @@ const api = {
 
   example:
   {
-    "mon": [],
-    "tue": [
-      {
-        start: "12:23:34",
-        end: "13:23:34"
-      },
-      {
-        start: "02:23:34",
-        end: "03:23:34"
-      },
-    ],
-    "wed": {},
-    "thu": {},
-    "fri": {},
-    "sat": {},
-    "sun": {}
+    days: ['2024-08-01', '2024-08-02', '2024-08-03', '2024-08-04', '2024-08-05', '2024-08-06', '2024-08-07'],
+    records: [{
+      recordDate: '2024-08-01',
+      startTime: '12:12:12',
+      endTime: '12:12:13'
+    }, 
+    {
+      recordDate: '2024-08-03',
+      startTime: '12:12:12',
+      endTime: '12:12:13'
+    }]
   }
 
   */
@@ -49,7 +44,7 @@ const api = {
         date: date
       }
     })
-    console.log(result)
+    // console.log(result)
     return result
   }
 }

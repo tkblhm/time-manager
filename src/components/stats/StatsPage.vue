@@ -3,7 +3,7 @@
 -->
 
 <template>
-  <ChartDisplay/>
+  <ChartDisplay :periods="periods"/>
   <DateSelector @update-date="updateDate"/>
 </template>
 
@@ -17,7 +17,7 @@ import api from '../../api/index'
 export default {
   data() {
     return {
-
+      periods: null
     }
   },
   components: {
@@ -26,10 +26,12 @@ export default {
   },
   methods: {
     updateDate(date) {
-      api.getWeekPeriods(date)
+      api.getWeekPeriods(date).then(res => {
+        console.log(res.data)
+        this.periods = res.data
+      })
     }
   }
-
 }
 
 </script>

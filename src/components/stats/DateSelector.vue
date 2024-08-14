@@ -33,7 +33,7 @@ export default {
       return this.selectedDate
     }
   },
-  mounted() {
+  created() {
     this.$emit("update-date", this.selectedDateString)
   },
   methods: {
