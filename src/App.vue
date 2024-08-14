@@ -11,7 +11,7 @@ import StatsPage from './components/stats/StatsPage.vue';
 export default {
   data() {
     return {
-      page: StatsPage
+      page: TimerPage
     }
   },
   name: 'App',

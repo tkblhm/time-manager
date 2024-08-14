@@ -18,9 +18,9 @@ import api from '../../api/index';
 export default {
   data() {
     return {
-      totalTime: 10887,
+      totalTime: 0,
       currentTime: 0,
-      startTime: null,
+      start: null,
       isTiming: false,
       timer: null
     }
@@ -37,7 +37,7 @@ export default {
   methods: {
     startTimer() {
       if (!this.isTiming) {      
-        this.startTime = new Date();
+        this.start = new Date();
         this.isTiming = true;
         this.currentTime = 0;
         this.timer = setInterval(() => {
@@ -48,8 +48,12 @@ export default {
     endTimer() {
       if (this.isTiming) {
         // todo: send time to backend
-        let end = new Date().toISOString().split('.')[0];
-        api.addEntry(this.startTime.toISOString().split('.')[0], end);
+        const end = new Date()
+        const endDate = end.toLocaleDateString("en-CA")
+        const endTime = end.toLocaleTimeString()
+        const startDate = this.start.toLocaleDateString("en-CA")
+        const startTime = this.start.toLocaleTimeString() 
+        api.addEntry(startDate+"T"+startTime, endDate+"T"+endTime);
         this.updateTotalTime();
         clearInterval(this.timer);
         this.isTiming = false;
@@ -67,9 +71,7 @@ export default {
       this.totalTime = api.getToday().then(res => {
         console.log(res.data);
         this.totalTime = res.data;
-      });
-
-      // this.totalTime = 1234;
+      })
     },
     setTimePeriod(date, beginTime, finishTime) {
       console.log("time period:");
